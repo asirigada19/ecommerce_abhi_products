@@ -1,0 +1,14 @@
+<div *ngIf="!productDetails" style="padding: 20px;" class="d-flex align-items-center">
+    <strong>Loading...</strong> &nbsp;
+    <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<div *ngIf="productDetails" style="margin: 20px;">
+    <img width="200px" src="{{productDetails.image}}" alt="">
+    <h5 style='margin-top: 10px;'>{{productDetails.title}}</h5>
+    <small>{{productDetails.category}} </small>
+   <span> <small>| Reviews: {{productDetails.rating.rate}} ({{productDetails.rating.count}})</small> </span>
+    <p style='margin-top: 25px;'>{{productDetails.description}}</p>
+    <p>Price &nbsp;<strong>${{productDetails.price}}</strong></p>
+</div>

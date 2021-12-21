@@ -1,1 +1,49 @@
-<p>products works!</p>
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        <div class="item">
+            <a>
+                <img src="https://www.w3schools.com/html/img_chania.jpg" width="64" alt="">
+                <h6>All products</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a>
+                <img src="https://www.w3schools.com/html/img_chania.jpg" width="64" alt="">
+                <h6>Electronics</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a>
+                <img src="https://www.w3schools.com/html/img_chania.jpg" width="64" alt="">
+                <h6>Clothing</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a>
+                <img src="https://www.w3schools.com/html/img_chania.jpg" width="64" alt="">
+                <h6>Jewellery</h6>
+            </a>
+        </div>
+    </div>
+</div>
+<div *ngIf="!productsList" style="padding: 20px;" class="d-flex align-items-center">
+    <strong>Loading...</strong> &nbsp;
+    <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of productsList">
+            <div class="card col-md-3">
+                <div style="cursor: pointer;" (click)="getProductDetail(item.id)">
+                    <img src="{{item.image}}" alt="">
+                    <h5 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{item.title}}</h5>
+                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;" >{{item.description}}</p>
+                </div>
+                <p><strong>$ {{item.price}}</strong></p>
+                <button class="btn btn-dark">Add to cart</button>
+            </div>
+        </ng-container>
+    </div>
+</div>
